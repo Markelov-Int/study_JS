@@ -38,6 +38,27 @@
 
 ///////////////////////////////////// ИНКРЕМЕНТ-ДЕКРЕМЕНТ //////////////
 
-let a = 10;
-console.log(a++);
-console.log(a);
+// let a = 10;
+// console.log(a++);
+// console.log(a);
+
+// 1
+
+let numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?", "");
+const personalMovieDB = {
+    count : numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false
+};
+let lastFilm = prompt("Один из последних просмотренных фильмов?", "");
+let value = +prompt("Оцените его", "");
+let lastFilm2 = prompt("Один из последних просмотренных фильмов?", "");
+let value2 = +prompt("Оцените его", "");
+personalMovieDB.movies[lastFilm] = value;
+personalMovieDB.movies[lastFilm2] = 2;
+
+10
+
+console.log(personalMovieDB)
