@@ -367,71 +367,486 @@
 
 
 
-let numberOfFilms;
+// let numberOfFilms;
 
-function start(){
-    numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+// function start(){
+//     numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
 
-    while(numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms) ){
-        numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
-    }
-}
+//     while(numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms) ){
+//         numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+//     }
+// }
 
-start();
+// start();
 
-const personalMovieDB = {
-    count:numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false
-};
-
-
-function rememberMovie(){
-    for (let i = 0; i < 2; i++){
-        const a = prompt("Один из последних просмотренных фильмов?", ""),
-              b = +prompt("Оцените его", "");
-        if (a != "" && b != "" && a != null && b != null && a.length < 50){
-            personalMovieDB.movies[a] = b;
-            console.log("done");
-        } else{
-            console.log("error");
-            i--;
-        }
-    }
-}
-rememberMovie();
-
-function detectMovieLevel(){
-    if (personalMovieDB.count < 10){
-        console.log("You watched quit a bit films!");
-    } else if (personalMovieDB.count > 10 && personalMovieDB.count < 30){
-        console.log("You are a cool viewer");
-    } else if (personalMovieDB.count > 30){
-        console.log("You are a film-lover!");
-    } else{
-        console.log("Error");
-    }
-}
-
-detectMovieLevel()
-
-function showMyDB(){
-    if(personalMovieDB.privat === false){
-        console.log(personalMovieDB);
-    }
-}
-showMyDB();
+// const personalMovieDB = {
+//     count:numberOfFilms,
+//     movies: {},
+//     actors: {},
+//     genres: [],
+//     privat: false
+// };
 
 
+// function rememberMovie(){
+//     for (let i = 0; i < 2; i++){
+//         const a = prompt("Один из последних просмотренных фильмов?", "").trim(),
+//               b = +prompt("Оцените его", "");
+//         if (a != "" && b != "" && a != null && b != null && a.length < 50){
+//             personalMovieDB.movies[a] = b;
+//             console.log("done");
+//         } else{
+//             console.log("error");
+//             i--;
+//         }
+//     }
+// }
+// rememberMovie();
 
-function writeYourGenres(){
-    for (let i = 1; i<=3; i++){
-        const answer = prompt(`Your favorite Genres by number: ${i} `, "");
-        personalMovieDB.genres.push(answer);
-    };
-    console.log(personalMovieDB);
-}
+// function detectMovieLevel(){
+//     if (personalMovieDB.count < 10){
+//         console.log("You watched quit a bit films!");
+//     } else if (personalMovieDB.count > 10 && personalMovieDB.count < 30){
+//         console.log("You are a cool viewer");
+//     } else if (personalMovieDB.count > 30){
+//         console.log("You are a film-lover!");
+//     } else{
+//         console.log("Error");
+//     }
+// }
 
-writeYourGenres();
+// detectMovieLevel()
+
+// function showMyDB(){
+//     if(personalMovieDB.privat === false){
+//         console.log(personalMovieDB);
+//     }
+// }
+// showMyDB();
+
+
+
+// function writeYourGenres(){
+//     for (let i = 1; i<=3; i++){
+//         const answer = prompt(`Your favorite Genres by number: ${i} `, "");
+//         personalMovieDB.genres.push(answer);
+//     };
+//     console.log(personalMovieDB);
+// }
+
+// writeYourGenres();
+
+
+/// ADVANDED TASK1 
+
+// function calculateVolumeAndArea(number) {
+//     let V = number * number * number;
+//     let S = number * number * 6;
+
+//     if( Number.isInteger(number) && number >= 0 ){
+//         console.log(`Объем куба: ${V}, площадь всей поверхности: ${S}`);
+//     } else {
+//         console.log("При вычислении произошла ошибка");
+//     }
+// }
+
+// calculateVolumeAndArea(5);
+// calculateVolumeAndArea(15);
+// calculateVolumeAndArea(15.5);
+// calculateVolumeAndArea('15');
+// calculateVolumeAndArea(-15);
+
+//V = a * a * a;
+//S = a * a *6;
+
+
+/// ADVANDED TASK2 
+
+// function getCoupeNumber(number) {
+//     if( typeof(number) !== "number" || number < 0 || !Number.isInteger(number)){
+//         return "Ошибка. Проверьте правильность введенного номера места";
+//     }
+
+//     if(number === 0 || number > 36){
+//         return "Таких мест в вагоне не существует";
+//     }
+
+//     return Math.ceil(number / 4);
+// }
+
+
+// console.log(getCoupeNumber(33));
+// console.log(getCoupeNumber(7));
+// console.log(getCoupeNumber(300));
+// console.log(getCoupeNumber(0));
+// console.log(getCoupeNumber(7.7));
+// console.log(getCoupeNumber(-10));
+// console.log(getCoupeNumber("Hello"));
+
+
+
+////// CALLBAVK FUNC
+
+// function learnJS(lang, callback){
+//     console.log(`Я учу ${lang}`);
+//     callback();
+// }
+
+// function done(){
+//     console.log("Я прошел этот урок! Callback отработал");
+// }
+
+// learnJS("JavaScript", done);
+
+
+// 2 способ
+// learnJS("JavaScript", function(){
+//     console.log("Я прошел этот урок!");
+// });
+
+
+
+
+                        ////   Objects  ///
+
+
+// let options = {
+//     name: "test",
+//     width: 1024,
+//     height: 1024,
+//     color: {
+//         border: "black",
+//         color: "red"
+//     }
+// }
+// // console.log(options.name);
+
+
+// for (let key in options){
+//     if(typeof(options[key]) === "object"){
+//         for(let i in options[key]){
+//             console.log(` Ключ ${i} Значениие ${options[key][i]}`);
+//         }
+//     } else{
+//         console.log(` Ключ ${key} Значениие ${options[key]}`)
+//     }
+
+// }
+
+
+// const arr = {
+//     a: 15,
+//     b: 12
+// };
+
+// function copy(mainObj){
+//     let objCopy = {};
+
+//     for(let i in mainObj){
+//         objCopy[i] = mainObj[i];
+//     }
+//     return objCopy;
+// };
+
+// const numbers = {
+//     c: 15,
+//     v:32,
+//     w:{
+//         r:12,
+//         s: 2
+//     }
+// };
+
+// const newNumb = copy(numbers);
+
+// newNumb.c = 99;
+// newNumb.w.r = 99; // Меняется у всех, тк поверхностная копия
+
+// console.log(newNumb, numbers);
+
+
+/// Objects TASK1
+
+// const personalPlanPeter = {
+//     name: "Peter",
+//     age: "29",
+//     skills: {
+//         languages: ['ru', 'eng', 'ua'],
+//         programmingLangs: {
+//             js: '20%',
+//             php: '10%'
+//         },
+//         exp: '1 month'
+//     },
+
+//     showAgeAndLangs: function(plan){
+//         let age = plan.age;
+//         let langs = plan.skills.languages.join(" ").toUpperCase();
+//         for(let i in plan){
+//             return `Мне ${age} и я владею языками ${langs}`;
+//         }
+//     }
+
+// };
+
+// console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
+
+
+// MY SOLUTION TASK2
+// function showProgrammingLangs(plan) {
+//     let res = plan.skills.programmingLangs;
+
+//     if (Object.keys(res).length === 0){
+//         console.log("error");
+//     } else{
+//         for(let key in res){ 
+//             console.log(`Язык ${key} изучен на ${res[key]}`);
+//         }
+//     }
+// }
+
+// showProgrammingLangs(personalPlanPeter);
+
+
+
+// SOLUTION WITH RETURN
+
+// function showProgrammingLangs(plan) {
+
+//     let str = ""; 
+    
+//     let res = plan.skills.programmingLangs;
+
+//     if (Object.keys(res).length === 0){
+//         console.log("error");
+//     } else{
+//         for(let key in res){ 
+//             str += `Язык ${key} изучен на ${res[key]}\n`;
+//         }
+//         return str;
+//     }
+// }
+
+// console.log(showProgrammingLangs(personalPlanPeter));
+
+
+// function showExperience(plan) {
+//     const exp = plan.skills.exp;
+//     return exp;
+// }
+
+// console.log(showExperience(personalPlanPeter));
+
+
+
+
+/// MASSIVE TASK1
+
+// const family = [];
+
+// function showFamily(arr) {
+//     let str = `Семья состоит из: `;
+//     if (arr.length === 0){
+//         return "Семья пуста";
+//     } else{
+//         family.forEach(function(item){
+//             str += `${item} `;
+//         });
+//         return str;
+//     }
+
+// };
+// console.log(showFamily(family));
+
+
+/// MASSIVE TASK2
+
+// const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+
+// function standardizeStrings(arr) {
+//     arr.forEach(function(item){
+//         console.log(item.toLowerCase());
+//     });
+// }
+// standardizeStrings(favoriteCities);
+
+
+/// MASSIVE TASK3
+
+// const someString = 'This is some strange string';
+
+// function reverse(str) {
+//     let string = "";
+//     if(typeof(str) !== "string"){
+//         return "Ошибка!";
+//     } else{
+//         for(let i = str.length-1; i >= 0; i--){
+//             string += str[i];
+//         }
+//         return string;
+//     }
+
+// }
+// console.log(reverse(someString));
+
+
+/// MASSIVE TASK4
+
+// const baseCurrencies = ['USD', 'EUR'];
+// const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+
+// function availableCurr(arr, missingCurr) {
+//     let str = 'Доступные валюты:\n';
+    
+//     if(arr.length === 0){
+//         return "Нет доступных валют";
+//     }
+
+//     for(let i = 0; i < arr.length; i++){
+//         if (arr[i] === missingCurr){
+//             continue;
+//         } 
+        
+//         str += `${arr[i]}\n`;
+//     }
+//     return str;
+// }
+
+// console.log(availableCurr([...baseCurrencies, ...additionalCurrencies], "CNY"));
+
+
+
+//PRACTICE
+
+// let str = ["per","Mov","MovieDB"];
+
+// function check(string){
+//     let res = "";
+//     if(string.length === 0) {
+//         return "Ask again";
+//     } else{
+//         string.forEach(function(item, i){
+//             res += `любимый жанр ${i+1} это - ${item}\n`;
+//         });
+//         return res;
+//     };
+// };
+
+// console.log(check(str));
+
+
+// ADVANCED TASK1
+
+// const shoppingMallData = {
+//     shops: [
+//         {
+//             width: 10,
+//             length: 5
+//         },
+//         {
+//             width: 15,
+//             length: 7
+//         },
+//         {
+//             width: 20,
+//             length: 5
+//         },
+//         {
+//             width: 8,
+//             length: 10
+//         }
+//     ],
+//     height: 5,
+//     moneyPer1m3: 30,
+//     budget: 50000
+// }
+
+//FIRSTSOLUTION
+
+// function isBudgetEnough(data) {
+//     let res = 0;
+//     let {shops} = shoppingMallData;
+//     for(let i in shops){
+//         res += shops[i].width * shops[i].length;
+//     }
+
+//     let fullS = res * data.height;
+//     let payed = fullS * data.moneyPer1m3;
+
+//     console.log(`Общая площадь всех магазинов равна: ${res} м3`);
+//     console.log(`Общая площадь тц равна: ${fullS} м3`)
+//     console.log(`Вся стоимость за отопление равна: ${payed}`)
+
+//     if(payed > data.budget){
+//         return "Бюджета недостаточно";
+//     } else{
+//         return "Бюджета достаточно";
+//     }
+// };
+
+// console.log(isBudgetEnough(shoppingMallData));
+//     function isBudgetEnough(data) {
+//     let res = 0;
+//     for(let i in data){
+//         if(typeof(data[i]) === "object"){
+//             for(let j in data[i]){
+//                 res += data[i][j].width * data[i][j].length;
+//             }
+//         }
+       
+//     }
+//     let fullS = res * data.height;
+//     let payed = fullS * data.moneyPer1m3;
+    
+//     console.log(`Общая площадь всех магазинов равна: ${res} м3`);
+//     console.log(`Общая площадь тц равна: ${fullS} м3`)
+//     console.log(`Вся стоимость за отопление равна: ${payed}`)
+
+//     if(payed > data.budget){
+//         return "Бюджета достаточно";
+//     } else{
+//         return "Бюджета недостаточно";
+//     }
+// };
+// console.log(isBudgetEnough(shoppingMallData));
+
+
+//Общая площадь всех магазинов 285;
+//Общая площадь тц 1425;
+
+//Вся стоимость за отопление 1425 * 30 = 42750;
+
+
+
+
+// ADVANCED TASK2
+
+// const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam', 'Samwqwq'];
+
+// function sortStudentsByGroups(arr) {
+//     arr.sort();
+
+//     let a = [];
+//     let b = [];
+//     let c = [];
+//     let d = [];
+    
+//     for(let i = 0; i<arr.length; i++){
+//         if (i < 3) {
+//             a.push(arr[i]);
+//         } else if (i < 6) {
+//             b.push(arr[i]);
+//         } else if (i < 9) {
+//             c.push(arr[i]);
+//         } else {
+//             d.push(arr[i]);
+//         }
+//     }
+
+//     return [a,b,c, `Оставшиеся студенты: ${d.length === 0 ? '-' : d.join(', ')}`]
+
+
+// }
+// console.log(sortStudentsByGroups(students));
+
+//arr[0], arr[1], arr[2];
