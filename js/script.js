@@ -821,7 +821,7 @@
 
 // ADVANCED TASK2
 
-// const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam', 'Samwqwq'];
+//  const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam', 'Samwqwq'];
 
 // function sortStudentsByGroups(arr) {
 //     arr.sort();
@@ -850,3 +850,102 @@
 // console.log(sortStudentsByGroups(students));
 
 //arr[0], arr[1], arr[2];
+
+
+            /// ЗАМЫКАНИЕ И ЛЕКСИЧЕСКОЕ ОКРУЖЕНИЕ ///
+
+
+// let number = 5; debugger
+
+// function logNum(){
+//     // number = 4; debugger
+//     console.log(number);
+// }
+
+// number = 6;
+
+// logNum(); debugger
+
+// number = 8;
+
+// logNum(); debugger
+
+// const result = getSum(5, 6);
+// const getSum = function(a, b) {
+//     return a + b;
+// }
+
+// console.log(0 || NaN || false || null)
+
+
+// // 1 0
+
+// function foo(a,b) {
+//     const [first] = a;
+//     const {eng} = b;
+ 
+//     return `${first} ${eng}`;
+// }
+ 
+// const result = foo(['Hello', 'Привет'], {ru: 'Мир', eng: 'World'})
+// console.log(result)
+
+
+ 
+// DEBAGING TASK1
+
+
+const restorantData = {
+    menu: [
+        {
+            name: 'Salad Caesar',
+            price: '14$'
+        },
+        {
+            name: 'Pizza Diavola',
+            price: '9$'
+        },
+        {
+            name: 'Beefsteak',
+            price: '17$'
+        },
+        {
+            name: 'Napoleon',
+            price: '7$'
+        }
+    ],
+    waitors: [
+        {name: 'Alice', age: 22}, {name: 'John', age: 24}
+    ],
+    averageLunchPrice: '20$',
+    openNow: true
+};
+
+// function isOpen(prop) { 
+//     let answer = '';
+//     prop ? answer = 'Закрыто' : answer = 'Открыто';
+
+//     return answer;
+// }
+
+// console.log(isOpen(restorantData.openNow))
+
+// function isAverageLunchPriceTrue(fDish, sDish, average) {
+//     if (+fDish.price.slice(0, -1) + +sDish.price.slice(0, -1) < average.slice(0, -1)) {
+//         return 'Цена ниже средней';
+//     } else {
+//         return 'Цена выше средней';
+//     }
+// }
+
+// console.log(isAverageLunchPriceTrue(restorantData.menu[0], restorantData.menu[1], restorantData.averageLunchPrice));
+
+
+function transferWaitors(data) {
+    const copy = Object.assign({}, data);
+
+    copy.waitors = {name: 'Mike', age: 32};
+    return copy;
+}
+
+console.log(transferWaitors(restorantData));
